@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    background-color: #121212;
+}
+.title-nav{
+    display: flex;
+    justify-content: space-between;
+
+    flex-direction: column;
+    background-color: #388E3C;
+}
+.siteName a, nav a{
+    text-decoration: none;
+}
+#homeTitle{
+    color: white;
+    font-size: 2.6em;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+}
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    font-family: "Josefin Slab", serif;
+    list-style-type: none;
+    padding: 0 1.5em;
+}
+.navBar li{
+    padding: 1em;
+    color: white;
+    font-size: 1.1em;
+}
+.images-testimonies{
+    background-color: #1E1E1E;
+    padding: 1em;
+}
+#actionBtn{
+    color: white;
+    font-family: "Raleway", sans-serif;
+    padding: 1em;
+    border: 1px solid #388E3C;
+    border-radius: 10px;
+}
+footer{
+    background-color: #388E3C;
+    padding: 1em;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    margin-top: 1em;
+    color: white;
+}
