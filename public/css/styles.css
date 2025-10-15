@@ -1,5 +1,5 @@
 body{
-    margin: 0;
+    margin: 0 auto;
     background-color: #121212;
 }
 .title-nav{
@@ -34,13 +34,55 @@ body{
     background-color: #1E1E1E;
     padding: 1em;
 }
+#divisor{
+    border: 1px solid #E0E0E0;
+    margin-top: 2em;
+}
+.imagesContainer{
+    display: flex;
+    justify-content: space-around;
+}
+.imagesContainer div img{
+    max-width: 230px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 #actionBtn{
     color: white;
     font-family: "Raleway", sans-serif;
     padding: 1em;
-    border: 1px solid #388E3C;
+    border: 3px solid #388E3C;
     border-radius: 10px;
+    max-width: 50%;
+    justify-self: center;
+    background-color: #121212;
 }
+#testimonies{
+    background-color: #121212;
+    padding: .4em 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.testimony{
+    color: #E0E0E0;
+}
+#testimony2{
+    margin-top: 2.4em;
+}
+.testimony h2{
+    font-family: "Josefin Slab", serif;
+}
+.testimony p{
+    font-family: "Raleway", sans-serif;
+    line-height: 1.7em;
+}
+
+.infoTitle{
+    font-family: "Josefin Slab", serif;
+    color: #E0E0E0;
+    text-align: center;
+}
+
 footer{
     background-color: #388E3C;
     padding: 1em;

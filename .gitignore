@@ -1,0 +1,5 @@
+# enviroment files should not be sent to the repository
+.env
+
+# node_modules is too large that can get too many space on the repository
+node_modules

@@ -6,6 +6,7 @@ const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
 const app = express();
 const static = require("./routes/static.js");
+const infosRoute = require("./routes/infosRoute.js")
 const utilities = require("./utilities/index.js");
 const baseController = require("./controllers/baseControllers");
 
@@ -24,9 +25,27 @@ app.set("layout", "./layouts/layout") //not at views root
 app.use(static)
 //Index route 
 app.get("/", utilities.handleErrors(baseController.buildHome))
+//Infos routes
+app.use("/infos", infosRoute)
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+})
+
+/* ***********************
+* Express Error Handler
+* Place after all other middleware
+*************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+  res.render("errors/error", {
+    title: err.status || '505 Server Error',
+    message,
+    nav,
+    errors: null,
+  })
 })
 
 /* ***********************

@@ -2,7 +2,9 @@ const utilities = require("../utilities/");
 const baseController = {};
 
 baseController.buildHome = async function(req, res){
-    res.render("index", {title: "Home", errors: null,});
+    //build the navigation
+    const nav = await utilities.getNav()
+    res.render("index", {title: "Home", nav: nav, errors: null,});
 }
 
 module.exports = baseController;
