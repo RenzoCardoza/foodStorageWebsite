@@ -5,6 +5,100 @@
     res.redirect('/')
 } %>
 
-<div>
-    
+<!-- Message Block -->
+<%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+<div class="main-infos">
+    <div id="typeContainers">
+        <h2>Containers</h2>
+        <p>
+            There are several containers that can be used for storing food in the long-term.
+        </p>
+        <ul>
+            <li>Mason Jars</li>
+            <li>PET Bottles</li>
+            <li>Mylar Bags</li>
+            <li>Plastic Drums</li>
+            <li>Many More..</li>
+        </ul>
+        <p>
+            The type of container will depend on the volume of the 
+            food being stored
+        </p>
+        <p>
+            Mylar bags + oxygens absorbers are suitable to store dried 
+            grains, beans, powdered milk, or dehydrated goods. They are excellent
+            barriers to light, moisture and oxygen (when sealed).
+        </p>
+        <p>
+            Mason Jars are suitable for smaller quantities of spices, herbs,
+            seeds, and any other dehydrated good. They are transparent and provide
+            a good seal when used the proper lid.
+        </p>
+        <p>
+            Plastic Drums (lined) are meant to store a large bulk of food. They are 
+            rodent proof and can be sealed to avoid any outside contamination.
+        </p>
+        <p>
+            PET Botttles are best used for smaller dry items such as beans, corn. Also, it 
+            is best to use when planned for short-to-medium term. They are a cheap option to 
+            begin storing food for the first instance.
+        </p>
+    </div>
+    <div id="recommendations">
+        <h2>Recommendations</h2>
+        <ul>
+            <li>
+                Use a double-layer approach: Many long-term storers 
+                place a sealed Mylar bag (with oxygen absorber) inside 
+                a rigid outer container (bucket or drum). The Mylar 
+                does the barrier work, and the bucket protects from 
+                physical damage, rodents, moisture. (This is common 
+                practice in survival / preparedness circles.)
+            </li>
+            <li>
+                Dryness is essential: Foods stored with oxygen absorbers 
+                must have very low moisture (about 10 % or less) or risk 
+                mold or botulism in sealed containers.
+            </li>
+            <li>
+                Use opaque or light-blocking containers or store in dark 
+                areas to protect sensitive nutrients and color. Light 
+                exposure accelerates degradation.
+            </li>
+            <li>
+                Check and rotate periodically: Even the best containers 
+                can fail (seals degrade, damage happens). Regular inspection 
+                (every 6 to 12 months) is important. USU Extension emphasizes 
+                labeling and rotating canned goods, storing in stable 
+                environments.
+            </li>
+            <li>
+                Avoid storing moist or wet foods in airtight containers with 
+                oxygen absorbers — that combination is dangerous.
+            </li>
+        </ul>
+    </div>
+    <div id="sources">
+        <h2>Sources with Additional Informations</h2>
+        <p class="links-sources">
+            <a href="https://extension.usu.edu/news_sections/home_family_and_food/foodstorage" target="_blank">Utah State University - 7 Factors That Prolong Your Food Storage Supply</a>
+        </p>
+        <p class="links-sources">
+            <a href="https://www.simplycanning.com/food-grade-storage-containers/" target="_blank">Simply Canning - Food Grade Storage Containers</a>
+        </p>
+        <p class="links-sources">
+            <a href="https://beready.utah.gov/family-preparedness/12-areas-of-preparedness/food/" target="_blank">Utah Goverment - Food Storage and Nutrition</a>
+        </p>
+        <p class="links-sources">
+            <a href="https://extension.usu.edu/preserve-the-harvest/food-storage-packaging" target="_blank">Utah State University - Food Preservation and Packaging</a>
+        </p>
+    </div>
 </div>

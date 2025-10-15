@@ -9,6 +9,9 @@ const static = require("./routes/static.js");
 const infosRoute = require("./routes/infosRoute.js")
 const utilities = require("./utilities/index.js");
 const baseController = require("./controllers/baseControllers");
+const cookieParser = require("cookie-parser")
+const bodyParser = require("body-parser")
+const session = require("express-session")
 
 /* ***********************
  * View Engine and Templates
@@ -17,7 +20,20 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts/layout") //not at views root
 
+app.use(session({cookie: {maxAge: 60000},
+                secret: 'testMS',
+                resave: false,
+                saveUninitialized: false}))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+// Express Messages Middleware
+app.use(require('connect-flash')())
+app.use(function(req, res, next){
+  res.locals.messages = require('express-messages')(req, res)
+  next()
+})
+app.use(cookieParser())
 
 /* ***********************
  * Routes
