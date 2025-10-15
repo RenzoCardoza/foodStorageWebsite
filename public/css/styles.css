@@ -89,7 +89,7 @@ a{
     line-height: 1.7em;
 }
 
-.infoTitle{
+.infoTitle, .contactTitle{
     font-family: "Josefin Slab", serif;
     color: #E0E0E0;
     text-align: center;
@@ -132,4 +132,23 @@ footer{
     padding: 1em;
     font-family: "Raleway", sans-serif;
     line-height: 1.5em;
+}
+.message-comfort{
+    padding: .1em 1.2em;
+}
+.message-comfort p{
+    color: #E0E0E0;
+    font-family: "Raleway", sans-serif;
+    line-height: 1.5em;
+}
+.contact-content{
+    background-color: #1E1E1E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact-content h3, .contact-content p{
+    font-family: "Raleway", sans-serif;
+    color: #E0E0E0;
+    text-align: center;
 }

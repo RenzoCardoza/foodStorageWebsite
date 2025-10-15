@@ -1,0 +1,54 @@
+<!-- title view -->
+<% if (title){ %>
+    <h1 class="contactTitle"><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!-- Message Block -->
+<%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+<div class="message-comfort">
+    <p>
+        Storing food for the first time could be a hard thing to do alone.
+        Still, you can always count on those who have been called to aid the Children
+        of God to be perfected in your ward, stake or even local community.
+    </p>
+</div>
+
+<div class="contact-content">
+    <div>
+        <h3>Renzo Cardoza<br>Site Owner</h3>
+        <p>
+            Phone: +55 11 991716890
+        </p>
+        <p>
+            E-mail: renzocardoza22@gmail.com
+        </p>
+    </div>
+    <div>
+        <h3>Lisset Gonzalez<br>Relief Society President</h3>
+        <p>
+            Phone: +55 19 981316896
+        </p>
+        <p>
+            E-mail: ltoranzo@hotmail.com
+        </p>
+    </div>
+    <div>
+        <h3>Arami Fernandez<br>Self-Reliance Ward Assistance</h3>
+        <p>
+            Phone: +55 86 981236317
+        </p>
+        <p>
+            E-mail: araFern112@gmail.com
+        </p>
+    </div>
+</div>

@@ -6,12 +6,13 @@ const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
 const app = express();
 const static = require("./routes/static.js");
-const infosRoute = require("./routes/infosRoute.js")
+const infosRoute = require("./routes/infosRoute.js");
+const contactRoute = require("./routes/contactRoute.js");
 const utilities = require("./utilities/index.js");
 const baseController = require("./controllers/baseControllers");
-const cookieParser = require("cookie-parser")
-const bodyParser = require("body-parser")
-const session = require("express-session")
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const session = require("express-session");
 
 /* ***********************
  * View Engine and Templates
@@ -28,52 +29,54 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 // Express Messages Middleware
-app.use(require('connect-flash')())
+app.use(require('connect-flash')());
 app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
-})
-app.use(cookieParser())
+});
+app.use(cookieParser());
 
 /* ***********************
  * Routes
  *************************/
-app.use(static)
+app.use(static);
 //Index route 
-app.get("/", utilities.handleErrors(baseController.buildHome))
+app.get("/", utilities.handleErrors(baseController.buildHome));
 //Infos routes
-app.use("/infos", infosRoute)
+app.use("/infos", infosRoute);
+//contact routes
+app.use("/contact", contactRoute);
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
-})
+});
 
 /* ***********************
 * Express Error Handler
 * Place after all other middleware
 *************************/
 app.use(async (err, req, res, next) => {
-  let nav = await utilities.getNav()
-  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  let nav = await utilities.getNav();
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`);
   if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
   res.render("errors/error", {
     title: err.status || '505 Server Error',
     message,
     nav,
     errors: null,
-  })
-})
+  });
+});
 
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
  *************************/
-const port = process.env.PORT
-const host = process.env.HOST
+const port = process.env.PORT;
+const host = process.env.HOST;
 
 /* ***********************
  * Log statement to confirm server operation
  *************************/
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
-})
+});
